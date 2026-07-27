@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://157r0dq8nkhx"]
+
+[ext_resource type="Texture2D" uid="uid://7p1xmibr4eo8" path="res://Sprites/leaf.png" id="1_nadfq"]
+[ext_resource type="Script" uid="uid://byooh6ma6asen" path="res://scenes/leaf_platform.gd" id="1_nkbir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkbir"]
+size = Vector2(140, 17)
+
+[node name="LeafPlatform" type="Node2D" unique_id=1313558474]
+script = ExtResource("1_nkbir")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134422327]
+position = Vector2(60.250004, 1.75)
+scale = Vector2(8.53125, 0.78125)
+texture = ExtResource("1_nadfq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=906694628]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=222981359]
+position = Vector2(60, 0.5)
+shape = SubResource("RectangleShape2D_nkbir")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=406466605]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039783724]
+position = Vector2(60, 1.5)
+shape = SubResource("RectangleShape2D_nkbir")
+one_way_collision = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
