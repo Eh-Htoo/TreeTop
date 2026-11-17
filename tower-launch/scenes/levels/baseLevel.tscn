@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://slvh83362iq0"]
 
-[ext_resource type="Script" uid="uid://dius8jkfab3lr" path="res://scenes/BaseLevel.gd" id="1_rthoy"]
-[ext_resource type="Script" uid="uid://ddws8i0geuxs" path="res://scenes/camera_2d.gd" id="2_eud2g"]
-[ext_resource type="PackedScene" uid="uid://dir8xwp486swx" path="res://scenes/mc.tscn" id="2_tw8om"]
-[ext_resource type="PackedScene" uid="uid://bmpm1p881job3" path="res://scenes/kill_zone.tscn" id="3_eud2g"]
+[ext_resource type="Script" uid="uid://dius8jkfab3lr" path="res://scripts/BaseLevel.gd" id="1_rthoy"]
+[ext_resource type="Script" uid="uid://ddws8i0geuxs" path="res://scripts/camera_2d.gd" id="2_eud2g"]
+[ext_resource type="PackedScene" uid="uid://dir8xwp486swx" path="res://scenes/Objects/mc.tscn" id="2_tw8om"]
+[ext_resource type="PackedScene" uid="uid://bmpm1p881job3" path="res://scenes/IntractiveScenes/kill_zone.tscn" id="3_eud2g"]
 [ext_resource type="Texture2D" uid="uid://bd40sdw0rnynj" path="res://Sprites/brokeHeart.png" id="4_g75k5"]
 [ext_resource type="Texture2D" uid="uid://ce8sd20tfdcg2" path="res://Sprites/heart.png" id="4_tw8om"]
 

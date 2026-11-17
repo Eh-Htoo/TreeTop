@@ -1,8 +1,6 @@
 extends Node2D
 
-#@onready var gem: Area2D = $Gem
-#@onready var gem_2: Area2D = $Gem2
-#@onready var door: Area2D = $Door
+
 
 @onready var gem: Area2D = $gems/Gem
 @onready var gem_2: Area2D = $gems/Gem2
@@ -16,10 +14,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(float) -> void:
 	if !is_instance_valid(gem) and !is_instance_valid(gem_2):	
 		door.unlocked = true
 	
-		#print("door is unlocked")
-	#if door.unlocked == true:
-		#print("unlocked")
+	

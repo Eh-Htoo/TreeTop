@@ -7,9 +7,10 @@ resource_name = "movement"
 script/source = "extends CharacterBody2D
 
 #movement variables
-const SPEED = 150.0
-const JUMP_VELOCITY = -320.0
-const MAX_JUMPTIME = 0.25
+const SPEED = 120.0
+const JUMP_VELOCITY = -250.0
+const MAX_JUMPTIME = 1
+const VELOCITY_DECREASER = .75
 var JUMP_HOLD_TIME := 0.0
 var JUMPING := false
 var push_force = 80.0
@@ -19,8 +20,11 @@ var health = 3
 var stun = false
 
 #animation
-func _process(delta: float) -> void:
+
+func _process(float) -> void:
 	
+# anytime the player gets stunned wait 2.5 to get back up
+#might want to change this later on in the game because, a stun could mean constant damage
 	if stun:
 		if is_on_floor():
 			await get_tree().create_timer(2.5).timeout
@@ -35,7 +39,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if JUMPING && JUMP_HOLD_TIME < MAX_JUMPTIME:
+			velocity += (Vector2(0,-400) + get_gravity()) * delta
+		else:
+			velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed(\"Jump\") and is_on_floor() and !stun:
@@ -43,23 +50,24 @@ func _physics_process(delta: float) -> void:
 		JUMPING = true
 		JUMP_HOLD_TIME = 0.0
 		
+		if JUMP_HOLD_TIME == MAX_JUMPTIME:
+			JUMPING = false
+
+# extra jump from holding
 	if Input.is_action_just_pressed(\"Jump\") and JUMPING and !stun:
 		JUMP_HOLD_TIME += delta
 
-		if JUMP_HOLD_TIME < MAX_JUMPTIME:
-			# Counteract some gravity while holding
-			velocity += get_gravity() * delta
 		
 	if Input.is_action_just_released(\"Jump\"):
 		JUMPING = false
-		# Cut the jump short
-		if velocity.y < 0:
-			velocity.y *= 0.75
-	# Stop variable jump after max time
+		
 	if JUMP_HOLD_TIME >= MAX_JUMPTIME:
 		JUMPING = false
-			
-	# Get the input direction and handle the movement/deceleration.
+
+
+
+# Get the input direction and handle the movement/deceleration.
+	
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(\"Left\", \"Right\")
 	if direction and !stun:

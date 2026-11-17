@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://p7tcah2ewbr7"]
 
-[ext_resource type="Script" uid="uid://onlj88pojy52" path="res://pressure_plate.gd" id="1_8bqyo"]
+[ext_resource type="Script" uid="uid://onlj88pojy52" path="res://scripts/pressure_plate.gd" id="1_8bqyo"]
 [ext_resource type="Texture2D" uid="uid://56xfld4vrdt5" path="res://icon.svg" id="2_djmga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ec6ob"]

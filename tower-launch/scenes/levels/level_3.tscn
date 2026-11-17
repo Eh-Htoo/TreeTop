@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c13dprg6wl7tn"]
 
-[ext_resource type="PackedScene" uid="uid://slvh83362iq0" path="res://scenes/baseLevel.tscn" id="1_o8c3j"]
-[ext_resource type="PackedScene" uid="uid://g7cpwedywksa" path="res://scenes/gem.tscn" id="2_0ljxa"]
-[ext_resource type="PackedScene" uid="uid://157r0dq8nkhx" path="res://scenes/leafPlatform.tscn" id="2_44gv1"]
+[ext_resource type="PackedScene" uid="uid://slvh83362iq0" path="res://scenes/levels/baseLevel.tscn" id="1_o8c3j"]
+[ext_resource type="PackedScene" uid="uid://g7cpwedywksa" path="res://scenes/Objects/gem.tscn" id="2_0ljxa"]
+[ext_resource type="PackedScene" uid="uid://157r0dq8nkhx" path="res://scenes/IntractiveScenes/leafPlatform.tscn" id="2_44gv1"]
 
 [node name="level_3" type="Node2D" unique_id=1783717253]
 

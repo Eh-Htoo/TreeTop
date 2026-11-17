@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://pshwg6pdcqf7"]
 
-[ext_resource type="PackedScene" uid="uid://dir8xwp486swx" path="res://scenes/mc.tscn" id="1_321hb"]
+[ext_resource type="PackedScene" uid="uid://dir8xwp486swx" path="res://scenes/Objects/mc.tscn" id="1_321hb"]
 [ext_resource type="Texture2D" uid="uid://c45q07tf7bhw0" path="res://Sprites/TileMap.png" id="1_jy5aj"]
-[ext_resource type="PackedScene" uid="uid://157r0dq8nkhx" path="res://scenes/leafPlatform.tscn" id="3_a1qx6"]
-[ext_resource type="PackedScene" uid="uid://bmpm1p881job3" path="res://scenes/kill_zone.tscn" id="4_gu6ud"]
-[ext_resource type="PackedScene" uid="uid://55x71tba5btq" path="res://scenes/jump_block.tscn" id="5_0ebsy"]
-[ext_resource type="PackedScene" uid="uid://bunhglt2ux5fe" path="res://scenes/ds_jumpblock.tscn" id="6_2cevy"]
+[ext_resource type="PackedScene" uid="uid://157r0dq8nkhx" path="res://scenes/IntractiveScenes/leafPlatform.tscn" id="3_a1qx6"]
+[ext_resource type="PackedScene" uid="uid://bmpm1p881job3" path="res://scenes/IntractiveScenes/kill_zone.tscn" id="4_gu6ud"]
+[ext_resource type="PackedScene" uid="uid://55x71tba5btq" path="res://scenes/IntractiveScenes/jump_block.tscn" id="5_0ebsy"]
+[ext_resource type="PackedScene" uid="uid://bunhglt2ux5fe" path="res://scenes/IntractiveScenes/ds_jumpblock.tscn" id="6_2cevy"]
 [ext_resource type="Script" uid="uid://byooh6ma6asen" path="res://scripts/leaf_platform.gd" id="7_vsyf1"]
-[ext_resource type="PackedScene" uid="uid://1ti6aa1oaikp" path="res://scenes/destroy_block.tscn" id="8_vsyf1"]
-[ext_resource type="PackedScene" uid="uid://b0ue5dhlcw5n0" path="res://door.tscn" id="9_7ti0s"]
+[ext_resource type="PackedScene" uid="uid://1ti6aa1oaikp" path="res://scenes/IntractiveScenes/destroy_block.tscn" id="8_vsyf1"]
+[ext_resource type="PackedScene" uid="uid://b0ue5dhlcw5n0" path="res://scenes/IntractiveScenes/door.tscn" id="9_7ti0s"]
 
 [sub_resource type="GDScript" id="GDScript_a1qx6"]
 resource_name = "GameState"

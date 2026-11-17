@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6cwpdoq51aur" path="res://Sprites/Sprite-0006.png" id="1_83s16"]
 [ext_resource type="Texture2D" uid="uid://1wjrqp1bcjqn" path="res://Sprites/start.png" id="1_wut1r"]
-[ext_resource type="Script" uid="uid://lvgcfof5q5ha" path="res://button.gd" id="3_w7d22"]
+[ext_resource type="Script" uid="uid://lvgcfof5q5ha" path="res://scripts/button.gd" id="3_w7d22"]
 
 [node name="Control" type="Control" unique_id=1901451319]
 layout_mode = 3

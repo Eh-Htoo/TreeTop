@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0lqjp17bn0v2"]
 
 [ext_resource type="Texture2D" uid="uid://56xfld4vrdt5" path="res://icon.svg" id="1_26jr0"]
-[ext_resource type="Script" uid="uid://cfapdfnlp8hms" path="res://scenes/moving_block.gd" id="1_yl38g"]
+[ext_resource type="Script" uid="uid://cfapdfnlp8hms" path="res://scripts/moving_block.gd" id="1_yl38g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl38g"]
 

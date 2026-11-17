@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b11ukw5h7b37f"]
 
 [ext_resource type="Texture2D" uid="uid://m2x8r7cna37w" path="res://Sprites/spike.png" id="1_d2mqm"]
-[ext_resource type="Script" uid="uid://v76637gkbnnj" path="res://attack.gd" id="2_d2mqm"]
-[ext_resource type="Script" uid="uid://cc2k5bqh4fucq" path="res://scenes/trigger.gd" id="3_d2mqm"]
+[ext_resource type="Script" uid="uid://v76637gkbnnj" path="res://scripts/attack.gd" id="2_d2mqm"]
+[ext_resource type="Script" uid="uid://cc2k5bqh4fucq" path="res://scripts/trigger.gd" id="3_d2mqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx2lw"]
 size = Vector2(18.00399, 1.983407)
