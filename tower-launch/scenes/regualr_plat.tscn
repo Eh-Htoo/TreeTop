@@ -10,8 +10,8 @@ size = Vector2(102.25, 11.875)
 script = ExtResource("1_q2cfl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134422327]
-position = Vector2(0, -4)
-scale = Vector2(2.125, 2.1250002)
+position = Vector2(1.4901161e-06, -7.1525574e-07)
+scale = Vector2(0.9166667, 0.75)
 texture = ExtResource("2_q2cfl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=406466605]
