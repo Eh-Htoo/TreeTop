@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bunhglt2ux5fe"]
+
+[ext_resource type="Script" uid="uid://cke8igskp7572" path="res://scripts/ds_jumpblock.gd" id="1_igrcg"]
+[ext_resource type="Texture2D" uid="uid://7p1xmibr4eo8" path="res://Sprites/leaf.png" id="2_5h2ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h2ns"]
+
+[node name="dsJumpblock" type="Area2D" unique_id=552020667]
+collision_mask = 2
+script = ExtResource("1_igrcg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1226437542]
+shape = SubResource("RectangleShape2D_5h2ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1677931798]
+texture = ExtResource("2_5h2ns")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

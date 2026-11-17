@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c4t3045h2cnfw"]
+
+[ext_resource type="Script" uid="uid://byooh6ma6asen" path="res://scripts/leaf_platform.gd" id="1_q2cfl"]
+[ext_resource type="Texture2D" uid="uid://b0tw5cefq6mci" path="res://Sprites/branch.png" id="2_q2cfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkbir"]
+size = Vector2(102.25, 11.875)
+
+[node name="regualrPlat" type="Node2D" unique_id=1313558474]
+script = ExtResource("1_q2cfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134422327]
+position = Vector2(0, -4)
+scale = Vector2(2.125, 2.1250002)
+texture = ExtResource("2_q2cfl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=406466605]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039783724]
+shape = SubResource("RectangleShape2D_nkbir")
+one_way_collision = true
+one_way_collision_margin = 4.6

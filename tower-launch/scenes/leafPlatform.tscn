@@ -1,31 +1,84 @@
 [gd_scene format=3 uid="uid://157r0dq8nkhx"]
 
-[ext_resource type="Texture2D" uid="uid://7p1xmibr4eo8" path="res://Sprites/leaf.png" id="1_nadfq"]
-[ext_resource type="Script" uid="uid://byooh6ma6asen" path="res://scenes/leaf_platform.gd" id="1_nkbir"]
+[ext_resource type="Script" uid="uid://byooh6ma6asen" path="res://scripts/leaf_platform.gd" id="1_nkbir"]
+[ext_resource type="Texture2D" uid="uid://pmbqdtfttrld" path="res://Sprites/cloud.png" id="2_nkbir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkbir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkbir"]
-size = Vector2(140, 17)
+size = Vector2(135.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fanv1"]
+size = Vector2(135, 12)
+
+[sub_resource type="Animation" id="Animation_fanv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eh2vv"]
+resource_name = "shake"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2, 0.3, 0.4, 0.4945728, 0.5945728, 0.6945728, 0.7745318, 0.9, 0.97453177, 1.0745318, 1.1691046, 1.2691046, 1.3691046, 1.4691045, 1.5490636, 1.6490636, 1.7490636, 1.8490636, 1.9363295, 2.0363295, 2.1363294, 2.2363296),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(9, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0), Vector2(9, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0), Vector2(9, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0), Vector2(9, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0), Vector2(9, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0), Vector2(9, 0), Vector2(0, 0), Vector2(-10, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lq78"]
+_data = {
+&"RESET": SubResource("Animation_fanv1"),
+&"shake": SubResource("Animation_eh2vv")
+}
 
 [node name="LeafPlatform" type="Node2D" unique_id=1313558474]
+z_index = 1
 script = ExtResource("1_nkbir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134422327]
-position = Vector2(60.250004, 1.75)
-scale = Vector2(8.53125, 0.78125)
-texture = ExtResource("1_nadfq")
+position = Vector2(-0.9999962, -1.5)
+scale = Vector2(2.125, 0.578125)
+texture = ExtResource("2_nkbir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=43512090]
+sprite_frames = SubResource("SpriteFrames_nkbir")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=906694628]
+position = Vector2(-67, 0)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=222981359]
-position = Vector2(60, 0.5)
+position = Vector2(66, -1)
 shape = SubResource("RectangleShape2D_nkbir")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=406466605]
+position = Vector2(-67, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039783724]
-position = Vector2(60, 1.5)
-shape = SubResource("RectangleShape2D_nkbir")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1273334529]
+position = Vector2(67.5, 0)
+shape = SubResource("RectangleShape2D_fanv1")
 one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1036248564]
+reset_on_save = false
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_5lq78")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

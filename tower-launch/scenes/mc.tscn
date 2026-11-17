@@ -6,44 +6,97 @@
 resource_name = "movement"
 script/source = "extends CharacterBody2D
 
+#movement variables
+const SPEED = 150.0
+const JUMP_VELOCITY = -320.0
+const MAX_JUMPTIME = 0.25
+var JUMP_HOLD_TIME := 0.0
+var JUMPING := false
+var push_force = 80.0
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+#health variables
+var health = 3
+var stun = false
+
+#animation
+func _process(delta: float) -> void:
+	
+	if stun:
+		if is_on_floor():
+			await get_tree().create_timer(2.5).timeout
+			stun = false
+		
+	
+	
 
 
+	
+#Movement
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed(\"Jump\") and is_on_floor():
+	if Input.is_action_just_pressed(\"Jump\") and is_on_floor() and !stun:
 		velocity.y = JUMP_VELOCITY
+		JUMPING = true
+		JUMP_HOLD_TIME = 0.0
+		
+	if Input.is_action_just_pressed(\"Jump\") and JUMPING and !stun:
+		JUMP_HOLD_TIME += delta
 
+		if JUMP_HOLD_TIME < MAX_JUMPTIME:
+			# Counteract some gravity while holding
+			velocity += get_gravity() * delta
+		
+	if Input.is_action_just_released(\"Jump\"):
+		JUMPING = false
+		# Cut the jump short
+		if velocity.y < 0:
+			velocity.y *= 0.75
+	# Stop variable jump after max time
+	if JUMP_HOLD_TIME >= MAX_JUMPTIME:
+		JUMPING = false
+			
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(\"Left\", \"Right\")
-	if direction:
+	if direction and !stun:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	
+	
+	
+	
+	#impulse code
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			
+			
+	
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hy1be"]
+radius = 7.0
 
-[node name="MC" type="Node2D" unique_id=2101885263]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1033151413]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=636252879]
 collision_layer = 2
+collision_mask = 5
 script = SubResource("GDScript_yc5nw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1998701132]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757968491]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hy1be")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1749479443]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72465572]
 texture = ExtResource("1_yc5nw")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=98089908]
-zoom = Vector2(3, 3)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1395294012]

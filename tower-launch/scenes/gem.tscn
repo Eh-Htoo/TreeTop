@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://g7cpwedywksa"]
+
+[ext_resource type="Texture2D" uid="uid://brjv22gky6o3g" path="res://Sprites/apple.png" id="1_5cxma"]
+[ext_resource type="Script" uid="uid://byvn72tyyqom4" path="res://scenes/gem.gd" id="1_mpwtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpwtx"]
+radius = 7.071068
+
+[node name="Gem" type="Area2D" unique_id=175068220]
+collision_mask = 2
+script = ExtResource("1_mpwtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145593019]
+shape = SubResource("CircleShape2D_mpwtx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1193235859]
+position = Vector2(-2.9802322e-08, -2)
+scale = Vector2(1.3125001, 1.25)
+texture = ExtResource("1_5cxma")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

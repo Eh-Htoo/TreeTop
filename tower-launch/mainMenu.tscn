@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bhg3gqy2pxkcg"]
+
+[ext_resource type="Texture2D" uid="uid://b6cwpdoq51aur" path="res://Sprites/Sprite-0006.png" id="1_83s16"]
+[ext_resource type="Texture2D" uid="uid://1wjrqp1bcjqn" path="res://Sprites/start.png" id="1_wut1r"]
+[ext_resource type="Script" uid="uid://lvgcfof5q5ha" path="res://button.gd" id="3_w7d22"]
+
+[node name="Control" type="Control" unique_id=1901451319]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=814223111]
+position = Vector2(960, 544)
+scale = Vector2(1, 0.99999994)
+texture = ExtResource("1_83s16")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=147412490]
+position = Vector2(960, 544)
+enabled = false
+limit_enabled = false
+
+[node name="HomeHub" type="Button" parent="." unique_id=921965898]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.367
+anchor_top = 0.089
+anchor_right = 0.633
+anchor_bottom = 0.26700002
+offset_left = -32.640015
+offset_top = -0.12000275
+offset_right = -31.359985
+offset_bottom = -0.36001587
+text = "change scene
+"
+script = ExtResource("3_w7d22")
+
+[node name="Sprite2D" type="Sprite2D" parent="HomeHub" unique_id=2065652963]
+position = Vector2(252, 96)
+scale = Vector2(7.8750005, 11.999999)
+texture = ExtResource("1_wut1r")
+
+[node name="level1" type="Button" parent="." unique_id=1682209643]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 384.0
+offset_right = 384.0
+offset_bottom = 512.0
+
+[node name="Level2" type="Button" parent="." unique_id=485078546]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 704.0
+offset_bottom = 504.0
+
+[node name="Level3" type="Button" parent="." unique_id=1583264113]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 384.0
+offset_right = 1024.0
+offset_bottom = 512.0
+
+[node name="Level4" type="Button" parent="." unique_id=620406820]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 384.0
+offset_right = 1344.0
+offset_bottom = 504.0
+
+[node name="Level5" type="Button" parent="." unique_id=2067271860]
+layout_mode = 0
+offset_left = 1480.0
+offset_top = 384.0
+offset_right = 1672.0
+offset_bottom = 504.0
+
+[node name="Level6" type="Button" parent="." unique_id=1769699124]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.004
+anchor_bottom = 0.007
+offset_left = 192.0
+offset_top = 576.0
+offset_right = 376.32
+offset_bottom = 696.44
+
+[connection signal="pressed" from="HomeHub" to="HomeHub" method="_on_pressed"]

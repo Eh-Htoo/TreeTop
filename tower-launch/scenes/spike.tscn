@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b11ukw5h7b37f"]
+
+[ext_resource type="Texture2D" uid="uid://m2x8r7cna37w" path="res://Sprites/spike.png" id="1_d2mqm"]
+[ext_resource type="Script" uid="uid://v76637gkbnnj" path="res://attack.gd" id="2_d2mqm"]
+[ext_resource type="Script" uid="uid://cc2k5bqh4fucq" path="res://scenes/trigger.gd" id="3_d2mqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx2lw"]
+size = Vector2(18.00399, 1.983407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a7y0"]
+size = Vector2(9.774916, 54.244675)
+
+[node name="Spike" type="Node2D" unique_id=213976611]
+rotation = -3.1457365
+
+[node name="spikeBody" type="RigidBody2D" parent="." unique_id=741599601]
+scale = Vector2(1, 1.0000001)
+collision_mask = 2
+can_sleep = false
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="spikeBody" unique_id=469932773]
+position = Vector2(-8.461315, -7.512242)
+rotation = 3.1341264
+scale = Vector2(1.0406611, 0.8862481)
+texture = ExtResource("1_d2mqm")
+
+[node name="Attack" type="Area2D" parent="spikeBody" unique_id=1381975928]
+scale = Vector2(1, 0.9999999)
+collision_mask = 2
+script = ExtResource("2_d2mqm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spikeBody/Attack" unique_id=793180827]
+position = Vector2(-12.045453, -15.175439)
+scale = Vector2(0.31249994, 0.4687499)
+polygon = PackedVector2Array(38.651535, 15.307749, 67.27891, 43.120407, 9.679396, 42.96129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikeBody" unique_id=1863210511]
+position = Vector2(-0.026934108, 5.9709415)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_cx2lw")
+disabled = true
+
+[node name="trigger" type="Area2D" parent="." unique_id=1193162467]
+collision_mask = 2
+script = ExtResource("3_d2mqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigger" unique_id=1219266837]
+position = Vector2(-1.1942805, -35.868828)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_7a7y0")
+
+[connection signal="body_entered" from="spikeBody/Attack" to="spikeBody/Attack" method="_on_body_entered"]
+[connection signal="body_entered" from="trigger" to="trigger" method="_on_body_entered"]

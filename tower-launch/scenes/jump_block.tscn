@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://55x71tba5btq"]
+
+[ext_resource type="Script" uid="uid://blqxeini4djun" path="res://scripts/jump_block.gd" id="1_i4n7s"]
+[ext_resource type="Texture2D" uid="uid://d0wv8txcpywmm" path="res://Sprites/wood 2.png" id="2_ql7bm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2mnn"]
+size = Vector2(20, 13)
+
+[node name="jumpBlock" type="Area2D" unique_id=1989587921]
+collision_mask = 2
+script = ExtResource("1_i4n7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1865868203]
+position = Vector2(5.364418e-07, 0.5000007)
+scale = Vector2(1.25, 1.3125001)
+texture = ExtResource("2_ql7bm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1577349779]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_q2mnn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=937983792]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1115602758]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
