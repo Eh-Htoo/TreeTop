@@ -24,9 +24,15 @@ var JUMP_HOLD_TIME := 0.0
 var JUMPING := false
 var push_force = 80.0
 var direction := Input.get_axis(\"Left\", \"Right\")
+var once =false
+const maxNoFall  = 0.07
+var countNoFall = 0.0
 #health variables
 var health = 3
 var stun = false
+
+
+
 
 #animation
 
@@ -42,11 +48,24 @@ func _process(float) -> void:
 #Movement
 func _physics_process(delta: float) -> void:
 	
+	
+	
 	direction = Input.get_axis(\"Left\", \"Right\")
 	handleMovement(delta)
 	handleAnimation()
 
 func handleMovement(delta: float) -> void:
+	var canJump = is_on_floor() || countNoFall < maxNoFall
+	
+	if is_on_floor():
+		countNoFall = 0
+		JUMPING = false
+		once = false
+		
+	if not is_on_floor() && countNoFall < maxNoFall && !JUMPING:
+		countNoFall += delta
+		
+	
 	if not is_on_floor():
 		if JUMPING && JUMP_HOLD_TIME < MAX_JUMPTIME:
 			velocity += (Vector2(0,-400) + get_gravity()) * delta
@@ -54,7 +73,8 @@ func handleMovement(delta: float) -> void:
 			velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed(\"Jump\") and is_on_floor() and !stun:
+	if Input.is_action_just_pressed(\"Jump\") and canJump and !stun and !once:
+		once = true
 		velocity.y = JUMP_VELOCITY
 		JUMPING = true
 		JUMP_HOLD_TIME = 0.0
