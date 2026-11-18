@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ec6ob"]
 size = Vector2(17, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgdl4"]
+
 [node name="pressurePlate" type="Area2D" unique_id=1150289208]
+collision_mask = 2
 script = ExtResource("1_8bqyo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057562738]
@@ -17,6 +20,12 @@ texture = ExtResource("2_djmga")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=761109223]
 position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_ec6ob")
+
+[node name="Spawner" type="Area2D" parent="." unique_id=167384510]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner" unique_id=524385820]
+position = Vector2(23, -2)
+shape = SubResource("RectangleShape2D_kgdl4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

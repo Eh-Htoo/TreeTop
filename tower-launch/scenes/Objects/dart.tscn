@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bms1d0u6cl5xh"]
+
+[ext_resource type="Script" uid="uid://dgxwa60xfenf4" path="res://scripts/dart.gd" id="1_exgui"]
+[ext_resource type="Texture2D" uid="uid://56xfld4vrdt5" path="res://icon.svg" id="1_nyhcp"]
+
+[sub_resource type="GDScript" id="GDScript_5csqv"]
+resource_name = "KillZone"
+script/source = "extends Area2D
+
+var fell = false
+
+# Called when the node enters the scene tree for the first time.
+
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	
+	body.health -= 1
+	body.stun = true
+	fell = true
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgdl4"]
+size = Vector2(14, 4)
+
+[node name="Dart" type="Node2D" unique_id=106992317]
+script = ExtResource("1_exgui")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=573861538]
+position = Vector2(4.7683716e-07, 2.3841858e-07)
+scale = Vector2(0.10937501, 0.031249998)
+texture = ExtResource("1_nyhcp")
+
+[node name="DartAttack" type="Area2D" parent="." unique_id=1874769976]
+collision_mask = 2
+script = SubResource("GDScript_5csqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DartAttack" unique_id=1559246861]
+shape = SubResource("RectangleShape2D_kgdl4")
+
+[connection signal="body_entered" from="DartAttack" to="DartAttack" method="_on_body_entered"]

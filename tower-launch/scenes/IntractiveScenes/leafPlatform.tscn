@@ -53,8 +53,8 @@ z_index = 1
 script = ExtResource("1_nkbir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134422327]
-position = Vector2(-0.9999962, -1.5)
-scale = Vector2(2.125, 0.578125)
+position = Vector2(2.5000002, -4.0000005)
+scale = Vector2(0.64453125, 0.42187497)
 texture = ExtResource("2_nkbir")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=43512090]

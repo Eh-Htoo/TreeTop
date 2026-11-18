@@ -31,8 +31,5 @@ func _on_area_2d_body_entered(Node2D) -> void:
 	
 	
 	
-	#sprite_2d.visible = false
-	#area_2d.monitoring = false
-	#collision_shape_2d.disabled = true
 	
 		

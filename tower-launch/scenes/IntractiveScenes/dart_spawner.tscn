@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dk8s04m37vr6j"]
+
+[ext_resource type="Script" uid="uid://ceglkifmptnlo" path="res://scripts/dart_spawner.gd" id="1_ioyj7"]
+[ext_resource type="Script" uid="uid://onlj88pojy52" path="res://scripts/pressure_plate.gd" id="2_y5qb5"]
+[ext_resource type="Texture2D" uid="uid://56xfld4vrdt5" path="res://icon.svg" id="3_ne3py"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgdl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec6ob"]
+size = Vector2(17, 3)
+
+[node name="DartSpawner" type="Node2D" unique_id=981455008]
+script = ExtResource("1_ioyj7")
+
+[node name="Spawner" type="Area2D" parent="." unique_id=167384510]
+position = Vector2(20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner" unique_id=524385820]
+shape = SubResource("RectangleShape2D_kgdl4")
+
+[node name="pressurePlate" type="Area2D" parent="." unique_id=1150289208]
+collision_mask = 2
+script = ExtResource("2_y5qb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="pressurePlate" unique_id=1057562738]
+position = Vector2(-8.940697e-08, 0)
+scale = Vector2(0.125, 0.023437502)
+texture = ExtResource("3_ne3py")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pressurePlate" unique_id=761109223]
+shape = SubResource("RectangleShape2D_ec6ob")
+
+[connection signal="body_entered" from="pressurePlate" to="pressurePlate" method="_on_body_entered"]
+[connection signal="body_exited" from="pressurePlate" to="pressurePlate" method="_on_body_exited"]
