@@ -425,14 +425,11 @@ collision_mask = 5
 script = SubResource("GDScript_yc5nw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757968491]
-position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hy1be")
 
 [node name="blueAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1395294012]
-position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_1yj8c")
 animation = &"fallling"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=72465572]
-visible = false
 texture = ExtResource("1_yc5nw")

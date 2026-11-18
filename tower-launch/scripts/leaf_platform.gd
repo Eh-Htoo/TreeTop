@@ -5,16 +5,13 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 
 func _on_area_2d_body_entered(Node2D) -> void:
 	
 	animation_player.play("shake")
-	#await animation_player.animation_finished
+
 	await get_tree().create_timer(2).timeout
 	
 	sprite_2d.visible = false

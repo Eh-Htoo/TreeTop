@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bglmrh6kd12n2"]
+
+[ext_resource type="Script" uid="uid://dlrog0dejf8lu" path="res://scripts/pot.gd" id="1_eoc5w"]
+[ext_resource type="PackedScene" uid="uid://g7cpwedywksa" path="res://scenes/Objects/gem.tscn" id="2_hjs4v"]
+[ext_resource type="Texture2D" uid="uid://ce8sd20tfdcg2" path="res://Sprites/heart.png" id="3_fknxf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ky1c"]
+radius = 6.0
+height = 14.0
+
+[node name="Pot" type="Node2D" unique_id=442328002]
+script = ExtResource("1_eoc5w")
+spawn_scene = ExtResource("2_hjs4v")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1453383986]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1432846840]
+shape = SubResource("CapsuleShape2D_8ky1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=615539558]
+texture = ExtResource("3_fknxf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

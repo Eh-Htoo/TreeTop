@@ -2,7 +2,9 @@ extends Area2D
 var unlocked = false
 var inDoor = false
 
-# Called when the node enters the scene tree for the first time.
+
+@export_file("*.tscn") var change_scene_path: String
+
 func _ready() -> void:
 	pass
 
@@ -10,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if inDoor == true and unlocked == true and  Input.is_action_just_pressed("Jump"):
-		get_tree().change_scene_to_file("res://scenes/levels/mainMenu.tscn")
+		get_tree().change_scene_to_file( change_scene_path)
 
 
 

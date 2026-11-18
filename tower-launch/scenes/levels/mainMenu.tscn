@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b6cwpdoq51aur" path="res://Sprites/Sprite-0006.png" id="1_83s16"]
 [ext_resource type="Texture2D" uid="uid://1wjrqp1bcjqn" path="res://Sprites/start.png" id="1_wut1r"]
 [ext_resource type="Script" uid="uid://lvgcfof5q5ha" path="res://scripts/button.gd" id="3_w7d22"]
+[ext_resource type="PackedScene" uid="uid://p2t5f2ep3ge" path="res://scenes/UI/main_menu_button.tscn" id="4_377ep"]
 
 [node name="Control" type="Control" unique_id=1901451319]
 layout_mode = 3
@@ -42,26 +43,37 @@ position = Vector2(252, 96)
 scale = Vector2(7.8750005, 11.999999)
 texture = ExtResource("1_wut1r")
 
-[node name="level1" type="Button" parent="." unique_id=1682209643]
-layout_mode = 0
+[node name="Level1" parent="." unique_id=915016317 instance=ExtResource("4_377ep")]
+layout_mode = 1
 offset_left = 200.0
-offset_top = 384.0
-offset_right = 384.0
-offset_bottom = 512.0
+offset_top = 383.0
+change_scene_path = "uid://cf6k4ti1v4jvq"
 
-[node name="Level2" type="Button" parent="." unique_id=485078546]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 384.0
-offset_right = 704.0
-offset_bottom = 504.0
+[node name="Button" parent="Level1" index="0" unique_id=1816210061]
+text = "Tutorial"
 
-[node name="Level3" type="Button" parent="." unique_id=1583264113]
-layout_mode = 0
-offset_left = 832.0
+[node name="Level2" parent="." unique_id=428587517 instance=ExtResource("4_377ep")]
+layout_mode = 1
+offset_left = 515.0
+offset_top = 379.0
+offset_right = 515.0
+offset_bottom = 379.0
+change_scene_path = "uid://5urbf17mf4p4"
+
+[node name="Button" parent="Level2" index="0" unique_id=1816210061]
+text = "Level 2"
+
+[node name="Level3" parent="." unique_id=290760978 instance=ExtResource("4_377ep")]
+layout_mode = 1
+offset_left = 834.0
 offset_top = 384.0
-offset_right = 1024.0
-offset_bottom = 512.0
+offset_right = 834.0
+offset_bottom = 384.0
+change_scene_path = "uid://c13dprg6wl7tn"
+
+[node name="Button" parent="Level3" index="0" unique_id=1816210061]
+text = "Level 3
+"
 
 [node name="Level4" type="Button" parent="." unique_id=620406820]
 layout_mode = 0
@@ -88,3 +100,7 @@ offset_right = 376.32
 offset_bottom = 696.44
 
 [connection signal="pressed" from="HomeHub" to="HomeHub" method="_on_pressed"]
+
+[editable path="Level1"]
+[editable path="Level2"]
+[editable path="Level3"]
