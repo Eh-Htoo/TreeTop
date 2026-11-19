@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://lm37qgyolkg5"]
+
+[ext_resource type="Theme" uid="uid://bwmym1nyh81a1" path="res://godot-pixel-ui-free-7ea1d3962268a1e19f123fcc8103b686c3af2b8c/addons/pixel_ui/themes/wood.tres" id="1_lmo2c"]
+[ext_resource type="FontFile" uid="uid://biqa16ricvnb1" path="res://godot-pixel-ui-free-7ea1d3962268a1e19f123fcc8103b686c3af2b8c/addons/pixel_ui/font/pixel_ui_font.fnt" id="2_lmo2c"]
+
+[sub_resource type="Theme" id="Theme_lqgur"]
+default_font = ExtResource("2_lmo2c")
+
+[node name="Control" type="Control" unique_id=193466044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lmo2c")
+
+[node name="CustomLabel" type="Label" parent="." unique_id=139600752]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_lqgur")
+theme_override_fonts/font = ExtResource("2_lmo2c")

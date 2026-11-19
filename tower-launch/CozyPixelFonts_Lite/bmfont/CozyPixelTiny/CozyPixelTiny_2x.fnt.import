@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://clh5blspbxib7"
+path="res://.godot/imported/CozyPixelTiny_2x.fnt-d0d0757c035e706406c3c39e184c0a29.fontdata"
+
+[deps]
+
+source_file="res://CozyPixelFonts_Lite/bmfont/CozyPixelTiny/CozyPixelTiny_2x.fnt"
+dest_files=["res://.godot/imported/CozyPixelTiny_2x.fnt-d0d0757c035e706406c3c39e184c0a29.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="towerLaunch"
 run/main_scene="uid://dam6i50aekf7v"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
